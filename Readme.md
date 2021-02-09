@@ -4,7 +4,7 @@ This is a tech assignment for Java Back-End Developer
 ## How to build and run the unit tests
 Use `mvn clean build` to build the project. You will all see the unit tests running information on console:
 
-``
+```
 [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ TransformerBattleSimulator ---
 [INFO] 
 [INFO] -------------------------------------------------------
@@ -12,7 +12,7 @@ Use `mvn clean build` to build the project. You will all see the unit tests runn
 [INFO] -------------------------------------------------------
 [INFO] Running com.transformer.service.BattleServiceTest
 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.137 s - in com.transformer.service.BattleServiceTest
-``
+```
 ## How to run the application
 - 1. Directly run the jar. There's a built jar file, so you can directly run
 
