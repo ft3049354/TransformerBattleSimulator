@@ -3,6 +3,7 @@ This is a tech assignment for Java Back-End Developer
 
 ## How to build and run the unit tests
 Use `mvn clean build` to build the project. You will all see the unit tests running information on console:
+
 ``
 [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ TransformerBattleSimulator ---
 [INFO] 
@@ -41,5 +42,5 @@ Survivors from the losing team (Autobots): Hubcap
 ## Assumptions
 - If the winners of the winning team are more than 1, the winner will be all listed.
 - Also if the survivors of the losing team are more than 1, the survivors will be all listed.
-- If the battle is tied, there won't output any competitors. Instead will output the tied battle message.
+- If the total battle result is tied, there won't output any competitors. Instead will output the tied battle message. For each tied battle, both competitors will be eliminated which means no winners.If you see total battle amount is more than winners amount, that mean there has at least a tied game.
 - As I only created one controller, so I think the the test for the controller looks like an integration test, so I just leave it as blank.I put most unit tests in the service classes.

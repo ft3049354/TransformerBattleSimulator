@@ -14,6 +14,11 @@ public class BattleService implements IBattleeService{
 	private ArrayList<Transformer> decepticonWinners = new ArrayList<>();
 	private int battleAmout = 0;
 	
+	/**
+	 * This method will simulate the battle and return the BattleResult object.
+	 * @param competitors attributes strings array
+	 * @return the BattleResult object
+	 */
 	public BattleResult startBattle(String[] competitors){
 		if(this.competitorsEmptyCheck(competitors)) {
 			return new BattleResult("There's no compeetitor");
@@ -39,6 +44,7 @@ public class BattleService implements IBattleeService{
 				decepticons.push(tf);
 		}
 		
+		// The battle will be ended if only one team has competitors.
 		if(autobots.isEmpty() || decepticons.isEmpty()) {
 			return new BattleResult("Please make sure each team has at least 1 transformer, then the battle can start.");
 		}
@@ -81,6 +87,11 @@ public class BattleService implements IBattleeService{
 		return result;
 	}
 	
+	/**
+	 * Check if the attributes string array is empty
+	 * @param competitors
+	 * @return
+	 */
 	private boolean competitorsEmptyCheck(String[] competitors) {
 		for(String competitor: competitors) {
 			if(competitor == null || competitor.equals("")) {
@@ -89,6 +100,12 @@ public class BattleService implements IBattleeService{
 		}
 		return false;
 	}
+	
+	/**
+	 * Convert the attributes strings array to a list of transformer objects 
+	 * @param competitors
+	 * @return
+	 */
 	private ArrayList<Transformer> getAllTransformers(String[] competitors){
 		ArrayList<Transformer> allTransformers = new ArrayList<>();
 		for(String competitor : competitors) {
@@ -97,11 +114,17 @@ public class BattleService implements IBattleeService{
 		return allTransformers;
 	}
 
+	/**
+	 * Create a transformer from attribute strings.
+	 * @param competiror
+	 * @return
+	 */
 	private Transformer createTransformer(String competiror){
 		String[] attributes = competiror.split(",");
 		Transformer transformer = new Transformer();
 		transformer.setName(attributes[0]);
-		transformer.setTeam(attributes[1]);
+		// Capitalize the team letter 
+		transformer.setTeam(attributes[1].toUpperCase());
 		transformer.setStrength(Integer.valueOf(attributes[2]));
 		transformer.setIntelligence(Integer.valueOf(attributes[3]));
 		transformer.setSpeed(Integer.valueOf(attributes[4]));
@@ -114,6 +137,12 @@ public class BattleService implements IBattleeService{
 		return transformer;
 	}
 
+	/**
+	 * Start the face off between one autobot and one decepticon
+	 * @param autobot
+	 * @param decepticon
+	 * @return the winner. If the result is null, that means it's a tied game
+	 */
 	private Transformer startOneRoundFaceoff(Transformer autobot, Transformer decepticon) {
 		// Check with the special rule
 		if(autobot.getName().equals("Optimus Prime") || autobot.getName().equals("Predaking")) {
@@ -143,6 +172,12 @@ public class BattleService implements IBattleeService{
 		return null;
 	}
 
+	/**
+	 * If the competitors are Predaking or Optimus Prime (or duplicate), the battle will be end immediately with the arena is destroyed
+	 * @param tf1
+	 * @param tf2
+	 * @return Compliance with the rule or not 
+	 */
 	private boolean checkSpecialRule(Transformer tf1, Transformer tf2) {
 		//special rule
 		if((tf1.getName().equals("Optimus Prime") || (tf1.getName().equals("Predaking")))
@@ -152,6 +187,13 @@ public class BattleService implements IBattleeService{
 		return false;
 	}
 
+	/**
+	 * If any fighter is down 4 or more points of courage and 3 or more points of strength compared to their opponent, the opponent automatically wins 
+	 * because the opponent has ran away
+	 * @param tf1
+	 * @param tf2
+	 * @return Compliance with the rule or not 
+	 */
 	private boolean checkRunAwayRule(Transformer tf1, Transformer tf2) {
 		if((tf1.getCourage() - tf2.getCourage()) >=4 && (tf1.getStrength() - tf2.getStrength()) >=3) {
 			return true;
@@ -159,6 +201,12 @@ public class BattleService implements IBattleeService{
 		return false;
 	}
 
+	/**
+	 * If one of the fighters is 3 or more points of skill above their opponent, they win the fight
+	 * @param tf1
+	 * @param tf2
+	 * @return Compliance with the rule or not 
+	 */
 	private boolean checkSkillRule(Transformer tf1, Transformer tf2) {
 		if(tf1.getSkill() - tf2.getSkill() >= 3) {
 			return true;
@@ -166,6 +214,13 @@ public class BattleService implements IBattleeService{
 		return false;
 	}
 
+	/**
+	 * If a fighter's overall rating is higher than the opponent, he will win.
+	 * overall rating formula:  (Strength + Intelligence + Speed + Endurance + Firepower)
+	 * @param tf1
+	 * @param tf2
+	 * @return Compliance with the rule or not
+	 */
 	private boolean checkNormalRule(Transformer tf1, Transformer tf2) {
 		if(tf1.getOverallRating() > tf2.getOverallRating()) {
 			return true;
@@ -195,6 +250,9 @@ public class BattleService implements IBattleeService{
 		return names;
 	}
 	
+	/**
+	 * Clean the arena for next battle
+	 */
 	public void clean() {
 		this.autobots = new Stack<>();
 		this.decepticons = new Stack<>();

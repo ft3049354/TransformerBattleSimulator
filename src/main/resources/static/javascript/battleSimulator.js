@@ -66,7 +66,7 @@ function valueCheck(competitors){
 		if(attributes.length < 10){
 			alertMsg = "The transformer No." + (index+1) + " only has " + attributes.length + " attribute(s), please complete all 10 attributes."
 			isPassed = false;
-		}else if(attributes[1] == undefined || attributes[1] == null || attributes[1] == '' || (attributes[1].trim() != 'D' && attributes[1].trim() != 'A')){
+		}else if(attributes[1] == undefined || attributes[1] == null || attributes[1] == '' || (attributes[1].trim().toUpperCase() != 'D' && attributes[1].trim().toUpperCase() != 'A')){
 			alertMsg += "Please define the team for transformer No." + (index+1) + ". It must be either D for decepticons or A for autobots.";
 			isPassed = false;	
 		}
