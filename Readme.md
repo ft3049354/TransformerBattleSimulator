@@ -14,12 +14,12 @@ Use `mvn clean build` to build the project. You will all see the unit tests runn
 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.137 s - in com.transformer.service.BattleServiceTest
 ```
 ## How to run the application
-- 1. Directly run the jar. There's a built jar file, so you can directly run
+- 1. Directly run the jar. Find the jar file from [here](https://github.com/ft3049354/TransformerBattleSimulator/tree/master/jar), then download it and run the command
 
-		`java -jar {{the cloned project path}}\target\TransformerBattleSimulator-0.0.1-SNAPSHOT.jar`
+		`java -jar {{the download path}}\TransformerBattleSimulator-0.0.1-SNAPSHOT.jar`
 
      
-   Once you see `Started TransformerBattleSimulatorApplication in 1.374 seconds`, then you can go to `localhost:8080` to enter the application
+   Once you see `Started TransformerBattleSimulatorApplication in 1.374 seconds`, then you can go to [localhost:8080](localhost:8080) to enter the application
 
 - 2. Open the prject in Eclipse IDE. Then Run it as the Spring Boot App.
 	The default port is 8080, You can change the port in `src/main/resources/application.properties`
