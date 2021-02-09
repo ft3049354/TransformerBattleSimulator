@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transformer Battle Simulator</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="javascript/battleSimulator.js"></script>
+</head>
+<body>
+	<div class="center-blockr">
+		<h1 class="text-center">Transformer Battle Simulator</h1>
+
+		<div class="container">
+			<div class="panel-body">
+				<p>Please enter the transformers that will participate on the
+					battle.</p>
+				<div>
+					<textarea id="transformerCompetitors" class="form-control"
+						rows="10" cols="3"></textarea>
+					<button id="startbtn" class="btn btn-danger btn-lg"
+						onclick="battleStart()">Start Battle!</button>
+				</div>
+				<br />
+				<h3>Battle Result:</h3>
+				<div id="result"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
