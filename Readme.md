@@ -44,4 +44,4 @@ Survivors from the losing team (Autobots): Hubcap
 - If the winners of the winning team are more than 1, the winner will be all listed.
 - Also if the survivors of the losing team are more than 1, the survivors will be all listed.
 - If the total battle result is tied, there won't output any competitors. Instead will output the tied battle message. For each tied battle, both competitors will be eliminated which means no winners.If you see total battle amount is more than winners amount, that mean there has at least a tied game.
-- As I only created one controller, so I think the the test for the controller looks like an integration test, so I just leave it as blank.I put most unit tests in the service classes.
+- As I only created one controller, so I think the the unite tests for the controller looks like an integration test, so I just leave it as blank.I put most unit tests in the service classes.
